@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="因为是Verilog HDL新手，在用Quartus软件进行Verilog进行代码编写的时候遇到很多问题，网上的答案大多不够详细，所以想“以己之力”写这样一篇 博客，会随着自己的学习进行补充，同时激励不断学习。 完整代码如下： 12345678910111213141516171819202122232425262728293031323334353637&#96;timescale 1ns &amp;#">
+  <meta name="description" content="因为是Verilog HDL新手，在用Quartus软件进行Verilog进行代码编写的时候遇到很多问题，网上的答案大多 不够详细，所以想“以己之力”写这样一篇博客，会随着自己的学习进行补充，同时激励不断学习。 完整代码如下： 12345678910111213141516171819202122232425262728293031323334353637&#96;timescale 1ns &amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一个较为完备的Verilog代码分析及测试">
 <meta property="og:url" content="http://example.com/2020/10/17/post/index.html">
 <meta property="og:site_name" content="Keino&#39;s Blog">
-<meta property="og:description" content="因为是Verilog HDL新手，在用Quartus软件进行Verilog进行代码编写的时候遇到很多问题，网上的答案大多不够详细，所以想“以己之力”写这样一篇 博客，会随着自己的学习进行补充，同时激励不断学习。 完整代码如下： 12345678910111213141516171819202122232425262728293031323334353637&#96;timescale 1ns &amp;#">
+<meta property="og:description" content="因为是Verilog HDL新手，在用Quartus软件进行Verilog进行代码编写的时候遇到很多问题，网上的答案大多 不够详细，所以想“以己之力”写这样一篇博客，会随着自己的学习进行补充，同时激励不断学习。 完整代码如下： 12345678910111213141516171819202122232425262728293031323334353637&#96;timescale 1ns &amp;#">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-17T12:27:47.000Z">
-<meta property="article:modified_time" content="2020-10-27T11:43:28.399Z">
+<meta property="article:modified_time" content="2020-10-27T12:13:32.895Z">
 <meta property="article:author" content="keino">
 <meta name="twitter:card" content="summary">
 
@@ -161,12 +161,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -237,7 +237,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-10-27 19:43:28" itemprop="dateModified" datetime="2020-10-27T19:43:28+08:00">2020-10-27</time>
+        <time title="Modified: 2020-10-27 20:13:32" itemprop="dateModified" datetime="2020-10-27T20:13:32+08:00">2020-10-27</time>
       </span>
 
   
@@ -250,8 +250,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>因为是Verilog HDL新手，在用Quartus软件进行Verilog进行代码编写的时候遇到很多问题，网上的答案大多不够详细，所以想“以己之力”写这样一篇</p>
-<p>博客，会随着自己的学习进行补充，同时激励不断学习。</p>
+        <p>因为是Verilog HDL新手，在用Quartus软件进行Verilog进行代码编写的时候遇到很多问题，网上的答案大多</p>
+<p>不够详细，所以想“以己之力”写这样一篇博客，会随着自己的学习进行补充，同时激励不断学习。</p>
 <p>完整代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#96;timescale 1ns &#x2F; 1ps</span><br><span class="line">module led_test</span><br><span class="line">(</span><br><span class="line">	input           clk,           &#x2F;&#x2F; system clock 50Mhz on board</span><br><span class="line">	input           rst,           &#x2F;&#x2F; reset ,low active</span><br><span class="line">	output reg[3:0] led            &#x2F;&#x2F; LED,use for control the LED signal on board</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;define a 32-bit time counter</span><br><span class="line">reg [31:0]      timer;           &#x2F;&#x2F;32-bit register varible</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; cycle counter:from 0 to 4 sec</span><br><span class="line">always@(posedge clk or negedge rst)</span><br><span class="line">begin</span><br><span class="line">	if (rst &#x3D;&#x3D; 1&#39;b0)</span><br><span class="line">		timer &lt;&#x3D; 32&#39;d0;                     &#x2F;&#x2F;when the reset signal valid,time counter clearing</span><br><span class="line">	else if (timer &#x3D;&#x3D; 32&#39;d199_999_999)      &#x2F;&#x2F;4 seconds count(50M*4-1&#x3D;199999999)</span><br><span class="line">		timer &lt;&#x3D; 32&#39;d0;                     &#x2F;&#x2F;count done,clearing the time counter</span><br><span class="line">	else</span><br><span class="line">		timer &lt;&#x3D; timer + 32&#39;d1;             &#x2F;&#x2F;timer counter &#x3D; timer counter + 1</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; LED control</span><br><span class="line">always@(posedge clk or negedge rst)</span><br><span class="line">begin</span><br><span class="line">	if (rst &#x3D;&#x3D; 1&#39;b0)</span><br><span class="line">		led &lt;&#x3D; 4&#39;b0000;                     &#x2F;&#x2F;when the reset signal active</span><br><span class="line">	else if (timer &#x3D;&#x3D; 32&#39;d49_999_999)       &#x2F;&#x2F;time counter count to 1st sec,LED1 lighten</span><br><span class="line">		led &lt;&#x3D; 4&#39;b0001;</span><br><span class="line">	else if (timer &#x3D;&#x3D; 32&#39;d99_999_999)       &#x2F;&#x2F;time counter count to 2nd sec,LED2 lighten</span><br><span class="line">		led &lt;&#x3D; 4&#39;b0010;</span><br><span class="line">	else if (timer &#x3D;&#x3D; 32&#39;d149_999_999)      &#x2F;&#x2F;time counter count to 3rd sec,LED3 lighten</span><br><span class="line">		led &lt;&#x3D; 4&#39;b0100;</span><br><span class="line">	else if (timer &#x3D;&#x3D; 32&#39;d199_999_999)      &#x2F;&#x2F;time counter count to 4th sec,LED4 lighten</span><br><span class="line">		led &lt;&#x3D; 4&#39;b1000;</span><br><span class="line">end</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -278,6 +278,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/01/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AF%BBHarry-Potter/" rel="next" title="从零开始读Harry Potter">
+                  从零开始读Harry Potter <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -325,7 +328,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
